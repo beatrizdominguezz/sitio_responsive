@@ -1,0 +1,276 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar{
+    padding: 10px 10px;
+}
+
+.barra_principal{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.row_navbar{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 32px;
+}
+
+.lista_navbar{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.row_titulo{
+    display: flex;
+    align-items: center;
+}
+
+.letra_roja_titulo{
+    color: red;
+    font-weight: 100px;
+}
+
+.letra_bold_titulo{
+    font-weight: bold;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    border-bottom: white 2px solid;
+}
+
+a:hover{
+    border-bottom: black 2px solid;
+}
+
+.notificacion_perfil{
+    display: flex;
+    align-items: center;
+}
+
+.barra_principal2{
+    display: flex;
+    align-items: center;
+}
+
+.buscador{
+    padding: 7px;
+    border: grey 1px solid;
+    border-radius: 3px;
+}
+
+.barra_principal2{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.recomendados {
+    flex: 1;
+}
+
+.recomendados h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.tarjeta-recomendado {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    border: 1px solid #ccc; /* Opcional para encuadrar la tarjeta */
+}
+
+.tarjeta-recomendado img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border: 1px solid #000;
+}
+
+.tarjeta-recomendado p {
+    font-size: 0.9rem;
+}
+
+.btn-agregar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #1a4a72; /* Azul del wireframe */
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-login {
+    background-color: #1a4a72; 
+    color: #ffffff;            
+    border: none;              
+    padding: 8px 18px;       
+    border-radius: 4px;        
+    font-weight: bold;         
+    cursor: pointer;           
+}
+
+.btn-login:hover {
+    background-color: #133552;
+}
+
+.tarjeta {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #ffffff; 
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.btn-sumar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #1a4a72;
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor_2 {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #cccccc;
+    padding: 30px;
+    border-radius: 1px;
+    box-sizing: border-box;
+}
+
+.texto-banner{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    padding-right: 20px;
+}
+
+.texto-banner h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000;
+}
+
+.texto-banner p {
+    font-size: 1.1rem;
+    color: #000;
+}
+
+.texto-banner p span {
+    font-weight: bold;
+    color: #e47b1f;
+}
+
+.tarjeta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #ffffff; 
+    padding: 12px 18px;       
+    border-radius: 4px; 
+}
+
+.imagen_comida {
+    width: 85px;
+    height: 85px;
+    object-fit: cover;
+    border: 2px solid #000000;
+    background-color: #fbf9f9;
+}
+
+.contenedor_1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #D2DCE7;
+    padding: 20px 15px;
+    gap: 15px;
+    max-width: 1200px; 
+    margin: 0 auto 30px auto;
+    border-radius: 1px;
+}
+
+.seccion-principal {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px; 
+    margin: 10px auto;
+    padding: 0 20px;
+}
+
+.column_recomendado2{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.column_recomendado1{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.row_recomendado{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
+
+.letra_negrita{
+    font-weight: bold;
+}
+
+.letra_gris{
+    color: rgb(73, 73, 73);
+}
+
+.linea_azul{
+    width: 60px;
+    height: 5px;
+    background-color: #275EA1;
+}
+
+.separacion_titulo{
+    padding-bottom: 10px;
+}
+
+.row_cola1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}

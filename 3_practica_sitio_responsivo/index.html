@@ -3,98 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>VideoStream</title>
     <meta name="author" content="Beatriz Dominguez">
     <link rel="stylesheet" href="static/css/style.css">
 </head>
-    <body>
-        <header>
-            <nav class="navbar">
-                <div class="barra_principal">
-                    <div class="row_navbar">
-                        <img src="static/images/youtube.jpg" alt="icono" class="icono_youtube">
-                        <div class="row_titulo">
-                            <h1 class="letra_bold_titulo">Video</h1>
-                            <h1 class="letra_roja_titulo">Stream</h1>
-                        </div>
-                        <div class="lista_navbar">
-                            <a href="#">Inicio</a>
-                            <a href="#">Explorar</a>
-                            <a href="#">Mi lista</a>
-                        </div>
-                    </div>
-                    <div class="barra_principal2">
-                        <div class="buscador_navbar">
-                            <input type="text" class="buscador" placeholder="🔍">
-                        </div>
-                        <div class="notificacion_perfil">
-                            <img src="" alt="notificaciones" class="iconos_navbar">
-                            <img src="" alt="perfil" class="iconos_navbar">
-                        </div>
-                    </div>
-                    
-                </div>
-            </nav>
-        </header>
-        <section class="seccion-principal">
+<body>
 
-            <div class="contenedor_2">
-                <div class="texto-banner">
-                    <video src="static/video/paisajes.mp4" controls width="640" height="360"></video>
-                </div>
-            </div> 
+    <!-- Encabezado Principal -->
+    <header class="encabezado">
+        <nav class="navegacion">
+            <div class="navegacion__izquierda">
+                <a href="#" class="logo">
+                    <span class="logo__icono">▶</span>
+                    <h1 class="logo__titulo">Video<span class="logo__titulo--rojo">Stream</span></h1>
+                </a>
+                <ul class="navegacion__menu">
+                    <li><a href="#" class="navegacion__enlace navegacion__enlace--activo">Inicio</a></li>
+                    <li><a href="#" class="navegacion__enlace">Explorar</a></li>
+                    <li><a href="#" class="navegacion__enlace">Mi lista</a></li>
+                </ul>
+            </div>
 
-            
-            <section class="recomendados">
-                <div class="row_cola1">
-                    <h3>Siguiente en la cola</h3>
-                    <button class="btn_limpiar">Limpiar cola</button>
-                </div>
-                <div class="tarjeta-recomendado">
-                    <img src="static/images/libro2.jpg" alt="Cien años de soledad">
-                    <div class="column_recomendado1">
-                        <div class="column_recomendado2">
-                            <p class="letra_negrita">Cien años de soledad</p>
-                            <p class="letra_gris">Gabriel García Márquez</p>
-                        </div>
-                        <div class="row_recomendado">
-                            <a href="#">Ver más...</a>
-                            <button class="btn-sumar">+</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="navegacion__derecha">
+                <form class="buscador">
+                    <input type="search" placeholder="Buscar..." class="buscador__input">
+                    <button type="submit" class="buscador__boton">🔍</button>
+                </form>
+                <button class="boton-icono" aria-label="Notificaciones">🔔</button>
+                <div class="perfil-usuario">👤</div>
+            </div>
+        </nav>
+    </header>
 
-                <div class="tarjeta-recomendado">
-                    <img src="static/images/libro1.jpg" alt="Sapiens">
-                    <div class="column_recomendado1">
-                        <div class="column_recomendado2">
-                            <p class="letra_negrita">Sapiens</p>
-                            <p class="letra_gris">Yuval Noah Harari</p>
-                        </div>
-                        <div class="row_recomendado">
-                            <a href="#">Ver más...</a>
-                            <button class="btn-sumar">+</button>
-                        </div>
+    <!-- Notificación emergente al añadir video -->
+    <div id="alerta-notificacion" class="alerta-notificacion oculta">
+        <span>✓ Video añadido a la cola</span>
+        <button id="btn-cerrar-alerta" class="alerta-notificacion__cerrar">&times;</button>
+    </div>
+
+    <!-- Contenido Principal -->
+    <main class="contenedor-principal">
+
+        <!-- Columna Izquierda: Reproductor Principal + Más Videos -->
+        <section class="columna-reproductor">
+
+            <!-- Reproductor de Video -->
+            <div class="reproductor">
+                <video src="static/video/paisajes.mp4" controls class="reproductor__video"></video>
+            </div>
+
+            <!-- Información del Video Principal -->
+            <article class="info-video">
+                <h2 class="info-video__titulo">Lagos y montañas</h2>
+                <p class="info-video__detalles">95 mil visualizaciones • 10 abr 2024</p>
+
+                <div class="acciones-bar">
+                    <div class="interaccion-likes">
+                        <button id="btn-me-gusta" class="btn-interaccion btn-interaccion--izq">
+                            👍 <span id="contador-likes">4,8 K</span>
+                        </button>
+                        <button class="btn-interaccion btn-interaccion--der">👎 120</button>
                     </div>
+                    <button class="btn-interaccion">↗ Compartir</button>
+                    <button id="btn-anadir-principal" class="btn-interaccion">➕ Añadir a la cola</button>
+                    <button class="btn-interaccion">•••</button>
                 </div>
 
-                <div class="tarjeta-recomendado">
-                    <img src="static/images/elPrincipito.jpg" alt="El principito">
-                    <div class="column_recomendado1">
-                        <div class="column_recomendado2">
-                            <p class="letra_negrita">El principito</p>
-                            <p class="letra_gris">Antoine de Saint-Exupéry</p>
-                        </div>
-                        <div class="row_recomendado">
-                            <a href="#">Ver más...</a>
-                            <button class="btn-sumar">+</button>
+                <!-- Info del Canal -->
+                <div class="canal">
+                    <div class="canal__detalles">
+                        <div class="canal__avatar"></div>
+                        <div>
+                            <h3 class="canal__nombre">VideoStream</h3>
+                            <p id="contador-suscriptores" class="canal__suscriptores">1,2 M de suscriptores</p>
                         </div>
                     </div>
+                    <button id="btn-suscribirse" class="btn-suscribirse">Suscribirse</button>
+                </div>
+
+                <!-- Descripción del Video -->
+                <div class="descripcion-video">
+                    <p class="descripcion-video__texto">
+                        Un recorrido por los lagos más hermosos de la Patagonia y sus montañas. Consejos, rutas y paisajes imperdibles.
+                    </p>
+                    <button class="descripcion-video__mas">Mostrar más ▾</button>
+                </div>
+            </article>
+
+            <!-- Sección Más Videos abajo del reproductor -->
+            <section class="seccion-mas-videos">
+                <h3 class="seccion-mas-videos__titulo">Más videos</h3>
+                <div class="mosaico-videos">
+                    <article class="tarjeta-mosaico">
+                        <div class="miniatura-contenedor">
+                            <video class="miniatura-video" src="static/video/paisajes.mp4" muted loop></video>
+                            <span class="miniatura-duracion">6:15</span>
+                        </div>
+                        <h4 class="tarjeta-mosaico__titulo">Rutas de trekking</h4>
+                        <p class="tarjeta-mosaico__info">80 mil visualizaciones</p>
+                    </article>
+
+                    <article class="tarjeta-mosaico">
+                        <div class="miniatura-contenedor">
+                            <video class="miniatura-video" src="static/video/paisajes.mp4" muted loop></video>
+                            <span class="miniatura-duracion">4:32</span>
+                        </div>
+                        <h4 class="tarjeta-mosaico__titulo">Lagos y montañas</h4>
+                        <p class="tarjeta-mosaico__info">95 mil visualizaciones</p>
+                    </article>
+
+                    <article class="tarjeta-mosaico">
+                        <div class="miniatura-contenedor">
+                            <video class="miniatura-video" src="static/video/paisajes.mp4" muted loop></video>
+                            <span class="miniatura-duracion">3:50</span>
+                        </div>
+                        <h4 class="tarjeta-mosaico__titulo">Fauna patagónica</h4>
+                        <p class="tarjeta-mosaico__info">60 mil visualizaciones</p>
+                    </article>
+
+                    <article class="tarjeta-mosaico">
+                        <div class="miniatura-contenedor">
+                            <video class="miniatura-video" src="static/video/paisajes.mp4" muted loop></video>
+                            <span class="miniatura-duracion">4:18</span>
+                        </div>
+                        <h4 class="tarjeta-mosaico__titulo">Consejos para viajar</h4>
+                        <p class="tarjeta-mosaico__info">110 mil visualizaciones</p>
+                    </article>
                 </div>
             </section>
 
         </section>
+
+        <!-- Columna Derecha: Cola de Reproducción + Recomendados -->
+        <aside class="columna-lateral">
+
+            <!-- 1. Siguiente en la Cola (3 ranuras) -->
+            <section class="bloque-lateral">
+                <div class="bloque-lateral__encabezado">
+                    <h3 class="bloque-lateral__titulo">Siguiente en la cola</h3>
+                    <button id="btn-limpiar-cola" class="btn-limpiar">Limpiar cola</button>
+                </div>
+
+                <div id="contenedor-cola" class="lista-tarjetas">
+                    <article class="tarjeta-lateral">
+                        <div class="miniatura-contenedor miniatura-contenedor--lateral">
+                            <video class="miniatura-video" src="static/video/paisajes.mp4" muted loop></video>
+                            <span class="miniatura-duracion">6:15</span>
+                        </div>
+                        <div class="tarjeta-lateral__info">
+                            <h4 class="tarjeta-lateral__titulo">Explorando la Patagonia</h4>
+                            <p class="tarjeta-lateral__canal">VideoStream</p>
+                            <p class="tarjeta-lateral__vistas">120 mil visualizaciones</p>
+                        </div>
+                        <button class="btn-eliminar-item">&times;</button>
+                    </article>
+
+                    <article class="tarjeta-lateral">
+                        <div class="miniatura-contenedor miniatura-contenedor--lateral">
+                            <video class="miniatura-video" src="static/video/paisajes.mp4" muted loop></video>
+                            <span class="miniatura-duracion">4:10</span>
+                        </div>
+                        <div class="tarjeta-lateral__info">
+                            <h4 class="tarjeta-lateral__titulo">Comida callejera</h4>
+                            <p class="tarjeta-lateral__canal">VideoStream</p>
+                            <p class="tarjeta-lateral__vistas">98 mil visualizaciones</p>
+                        </div>
+                        <button class="btn-eliminar-item">&times;</button>
+                    </article>
+
+                    <article class="tarjeta-lateral">
+                        <div class="miniatura-contenedor miniatura-contenedor--lateral">
+                            <video class="miniatura-video" src="static/video/paisajes.mp4" muted loop></video>
+                            <span class="miniatura-duracion">8:12</span>
+                        </div>
+                        <div class="tarjeta-lateral__info">
+                            <h4 class="tarjeta-lateral__titulo">Ciudades del mundo</h4>
+                            <p class="tarjeta-lateral__canal">VideoStream</p>
+                            <p class="tarjeta-lateral__vistas">210 mil visualizaciones</p>
+                        </div>
+                        <button class="btn-eliminar-item">&times;</button>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 2. Recomendados (3 ranuras) -->
+            <section class="bloque-lateral">
+                <div class="bloque-lateral__encabezado">
+                    <h3 class="bloque-lateral__titulo">Recomendados</h3>
+                </div>
+
+                <div class="lista-tarjetas">
+                    <article class="tarjeta-lateral">
+                        <div class="miniatura-contenedor miniatura-contenedor--lateral">
+                            <video class="miniatura-video" src="static/video/paisajes.mp4" muted loop></video>
+                            <span class="miniatura-duracion">5:20</span>
+                        </div>
+                        <div class="tarjeta-lateral__info">
+                            <h4 class="tarjeta-lateral__titulo">Rutas de trekking</h4>
+                            <p class="tarjeta-lateral__canal">VideoStream</p>
+                            <p class="tarjeta-lateral__vistas">80 mil visualizaciones</p>
+                        </div>
+                        <button class="btn-anadir-cola-item">➕</button>
+                    </article>
+
+                    <article class="tarjeta-lateral">
+                        <div class="miniatura-contenedor miniatura-contenedor--lateral">
+                            <video class="miniatura-video" src="static/video/paisajes.mp4" muted loop></video>
+                            <span class="miniatura-duracion">3:50</span>
+                        </div>
+                        <div class="tarjeta-lateral__info">
+                            <h4 class="tarjeta-lateral__titulo">Fauna patagónica</h4>
+                            <p class="tarjeta-lateral__canal">VideoStream</p>
+                            <p class="tarjeta-lateral__vistas">60 mil visualizaciones</p>
+                        </div>
+                        <button class="btn-anadir-cola-item">➕</button>
+                    </article>
+
+                    <article class="tarjeta-lateral">
+                        <div class="miniatura-contenedor miniatura-contenedor--lateral">
+                            <video class="miniatura-video" src="static/video/paisajes.mp4" muted loop></video>
+                            <span class="miniatura-duracion">4:18</span>
+                        </div>
+                        <div class="tarjeta-lateral__info">
+                            <h4 class="tarjeta-lateral__titulo">Atardeceres increíbles</h4>
+                            <p class="tarjeta-lateral__canal">VideoStream</p>
+                            <p class="tarjeta-lateral__vistas">72 mil visualizaciones</p>
+                        </div>
+                        <button class="btn-anadir-cola-item">➕</button>
+                    </article>
+                </div>
+            </section>
+
+        </aside>
+
     </main>
-    <script src="static/js/script.js"></script>
-    </body>
+
+    <script src="static/js/script.js" defer></script>
+</body>
 </html>
